@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.43478260869565216" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+  <items>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="300.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="10.0" prefHeight="30.0" prefWidth="300.0" text="Wybierz planetę:" />
+            <VBox alignment="CENTER" layoutY="40.0" prefHeight="186.0" prefWidth="255.0" spacing="5.0">
+               <children>
+                  <CheckBox fx:id="cbMerkury" mnemonicParsing="false" onAction="#MerkuryChecked" prefWidth="150.0" text="Merkury">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></CheckBox>
+                  <CheckBox fx:id="cbWenus" mnemonicParsing="false" onAction="#WenusChecked" prefWidth="150.0" text="Wenus">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></CheckBox>
+                  <CheckBox fx:id="cbZiemia" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ZiemiaChecked" prefWidth="150.0" text="Ziemia">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></CheckBox>
+                  <CheckBox fx:id="cbMars" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#MarsChecked" prefWidth="150.0" text="Mars">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></CheckBox>
+                  <CheckBox fx:id="cbJowisz" mnemonicParsing="false" onAction="#JowiszChecked" prefWidth="150.0" text="Jowisz">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="cbSaturn" mnemonicParsing="false" onAction="#SaturnChecked" prefWidth="150.0" text="Saturn">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></CheckBox>
+                  <CheckBox fx:id="cbUran" mnemonicParsing="false" onAction="#UranChecked" prefWidth="150.0" text="Uran">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></CheckBox>
+                  <CheckBox fx:id="cbNeptun" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#NeptunChecked" prefWidth="150.0" text="Neptun">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></CheckBox>
+                  <CheckBox fx:id="cbNowa" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#CreateNewPlanet" prefWidth="150.0" text="Stwórz nową planetę" />
+               </children>
+            </VBox>
+            <Label fx:id="lblDane" alignment="CENTER" contentDisplay="CENTER" layoutY="240.0" prefHeight="30.0" prefWidth="300.0" style="-fx-font-size: 12;" text="Podaj:" />
+            <Label fx:id="lblA" layoutX="40.0" layoutY="300.0" prefHeight="26.0" prefWidth="100.0" style="-fx-font-size: 12;" text="Odległość :" />
+            <Label fx:id="lblE" layoutX="40.0" layoutY="330.0" prefHeight="26.0" prefWidth="100.0" style="-fx-font-size: 12;" text="Ekscentryczność :" />
+            <Label fx:id="lblNazwa" layoutX="40.0" layoutY="270.0" prefHeight="26.0" prefWidth="100.0" style="-fx-font-size: 12;" text="Nazwę :" />
+            <TextField fx:id="txtNazwa" layoutX="150.0" layoutY="270.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="115.0" style="-fx-max-height: 26; -fx-max-width: 115;" />
+            <TextField fx:id="txtA" layoutX="150.0" layoutY="300.0" prefHeight="26.0" prefWidth="115.0" style="-fx-max-height: 26; -fx-max-width: 115;" />
+            <TextField fx:id="txtE" layoutX="150.0" layoutY="330.0" prefHeight="26.0" prefWidth="115.0" style="-fx-max-height: 26; -fx-max-width: 115;" />
+            <MenuButton fx:id="mbtnMetoda" layoutX="50.0" layoutY="430.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Wybierz metodę">
+              <items>
+                <MenuItem fx:id="mitmBisekcja" mnemonicParsing="false" onAction="#Bisekcja" text="Metoda bisekcji" />
+                <MenuItem fx:id="mitmPunktStaly" mnemonicParsing="false" onAction="#PunktStaly" text="Metoda punktu stałego" />
+                  <MenuItem fx:id="mitmFalszywaLiniowosc" mnemonicParsing="false" onAction="#FalszywaLiniowosc" text="Metoda fałszywej liniowości" />
+                  <MenuItem fx:id="mitmSiecznych" mnemonicParsing="false" onAction="#Sieczne" text="Metoda siecznych" />
+                  <MenuItem fx:id="mitmStycznych" mnemonicParsing="false" onAction="#Styczne" text="Metoda stycznych" />
+              </items>
+            </MenuButton>
+            <Button fx:id="btnDodaj" layoutX="80.0" layoutY="370.0" mnemonicParsing="false" onAction="#Add" prefHeight="40.0" prefWidth="150.0" text="Dodaj nową planetę" />
+            <TextArea fx:id="txtUwagi" layoutX="8.0" layoutY="484.0" prefHeight="104.0" prefWidth="285.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextArea>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <SplitPane orientation="VERTICAL" prefHeight="398.0" prefWidth="340.0">
+              <items>
+                  <ScatterChart fx:id="schGraph" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="585.0">
+                    <xAxis>
+                      <NumberAxis fx:id="yAxis" prefWidth="420.0" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="xAxis" />
+                    </yAxis>
+                  </ScatterChart>
+              </items>
+            </SplitPane>
+            <ToolBar layoutY="550.0" prefHeight="51.0" prefWidth="590.0" AnchorPane.leftAnchor="0.0">
+              <items>
+                <Button fx:id="btnRysuj" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Draw" prefHeight="40.0" prefWidth="120.0" text="Rysuj" />
+                  <Button fx:id="btnWyczysc" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Clear" prefHeight="40.0" prefWidth="120.0" text="Wyczyść" />
+                  <Button fx:id="btnZapisz" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Save" prefHeight="40.0" prefWidth="120.0" text="Zapisz" />
+              </items>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </ToolBar>
+         </children></AnchorPane>
+  </items>
+</SplitPane>
